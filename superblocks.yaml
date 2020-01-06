@@ -1,0 +1,17 @@
+version: 1
+jobs:
+  compile:
+    image: node
+    script:
+      - npm install papi
+      - npx papi compile
+  test:
+    image: node
+    script:
+      - npm install papi
+      - npx papi test
+stages:
+  - pipeline:
+      jobs:
+        - compile
+        - test
